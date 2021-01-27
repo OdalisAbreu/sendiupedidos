@@ -23,6 +23,12 @@ class ProductController extends Controller
       }
    		return view('products.show')->with(compact('product', 'imagesLeft', 'imagesRight'));
    }
+  public function index()
+   {  
+         $product = Product::all();
+         return response()->json($product);
 
+   }
+   
    
 }

@@ -3,33 +3,26 @@
         <nav class="pull-left">
             <ul>
                 <li>
-                    <a href="https://www.luisfax.com/b">
-                        ¿Necesitas ayuda con un proyecto?
+                    <a href="https://sendiu.net/">
+                        ¿Necesitas ayuda?
                     </a>
                 </li>
                 <li>
-                    <a href="https://luisfax.com/b/">
+                    <a href="https://sendiu.net/contactanos/">
                        Asesoría personalizada
                     </a>
                 </li>
                 <li>
-                    <a href="https://luisfax.com/b">
-                       Blog
+                    <a href="https://sendiu.net/desarrolladores-2/">
+                       Integra Nuestra API
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.luisfax.com/b">
-                        Proyectos libres y comerciales
+                    <a href="https://sendiu.net/sendiu-canales-digitales-empresa/">
+                        Conocenos
                     </a>
                 </li>
             </ul>
         </nav>
-        <div class="copyright pull-right">
-            <i class="fa fa-code"></i> 
-            <a href="https://www.luisfax.com/b">
-            Luis Fax                       
-                    </a>
-                    - Compartiendo líneas...
-        </div>
     </div>
 </footer>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Bienvenido a App Shop')
+@section('title', 'Sendiu')
 
 @section('body-class', 'landing-page')
 
@@ -23,13 +23,13 @@
 
 @section('content')
   
-<div class="header header-filter" style="background-image: url({{ asset('/img/bgMain1.png')}});">
+<div class="header header-filter" style="background-image: url({{ asset('/images/img1.jpg')}});">
  
 
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h1 class="title">Bienvenidos Developers IT!</h1>
+                <h1 class="title">Bienvenidos SENDIU Gestor de Peidos!</h1>
                 <h4>Realiza pedidos en línea y nosotros coordinamos la entrega.</h4>
                 <br />
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">

@@ -11,6 +11,9 @@
 |
 */
 //https://akivaron.github.io/miminium/credits.html
+
+use App\Http\Controllers\OrderController;
+
 Route::get('/', 'TestController@welcome');
 
 Auth::routes();
@@ -26,6 +29,11 @@ Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
 
 Route::post('/order', 'CartController@update');
+//Route::resource('/order', 'OrderController');
+
+
+Route::resource('orders', 'OrderController');
+Route::get('orders/{id}/{status}', 'OrderController@editar');
 
 
 
@@ -50,4 +58,6 @@ Route::middleware(['auth','admin'])->namespace('Admin')->prefix('admin')->group(
 	
 	Route::post('/categories/{category}/edit', 'CategoryController@update'); //actualizar
 	Route::delete('/categories/{category}', 'CategoryController@destroy'); //eliminar
+
+	
 });

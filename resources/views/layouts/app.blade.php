@@ -29,12 +29,12 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">Developers TI</a>
+                <a class="navbar-brand" href="{{ url('/') }}">SENDIU</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
@@ -60,6 +60,9 @@
                                          <li>
                                             <a href="{{ url('/admin/categories') }}">Gestionar categorias</a>
                                         </li>
+                                        <li>
+                                            <a href="{{ url('/orders') }}">Gestionar Pedidos</a>
+                                        </li>
                                     @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -77,13 +80,13 @@
                         @endguest
 
                     <li>
-                        <a href="https://twitter.com/luisfaax" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-                            <i class="fa fa-twitter"></i>
+                        <a href="https://www.instagram.com/sendiurd/" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+                            <i class="fa fa-instagram"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.facebook.com/luisfaax" target="_blank" class="btn btn-simple btn-white btn-just-icon">
-                            <i class="fa fa-facebook-square"></i>
+                        <a href="https://www.facebook.com/sendiuRD" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+                            <i class="fa fa-facebook"></i>
                         </a>
                     </li>
                     <li>
