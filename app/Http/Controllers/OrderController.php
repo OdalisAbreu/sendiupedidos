@@ -48,9 +48,11 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show($id)
     {
         //
+        $order = Order::findOrFail($id);
+        return response()->json($order);
         
     }
 

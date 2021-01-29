@@ -18,9 +18,9 @@ Sistema web para gestión de pedidos en línea
 * Gestión de productos
 * Gestión de imágenes
 * Gestión de órdenes de pedidos
+* Integración con API
 * Buscador predictivo de artículos
 * Carrito de compras
-* Reporte gráfico de estadísticos
 
 
 **Instalación:**

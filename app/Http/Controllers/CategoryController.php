@@ -13,6 +13,12 @@ class CategoryController extends Controller
   			$products = $category->products()->paginate(10);
   		    return view('categories.show')->with(compact('category','products'));
   }
+  public function index()
+  {
+    $category = Category::all();
+    return response()->json($category);
+  }
+
 
 
 }
