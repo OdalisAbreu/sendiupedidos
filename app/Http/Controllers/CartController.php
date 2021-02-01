@@ -27,7 +27,8 @@ class CartController extends Controller
 		
 		$cart = $client->cart;
     	$cart->status = 'Pending';
-    	$cart->order_date = Carbon::now();
+		$cart->order_date = Carbon::now();
+		$cart->total = $client->cart->total;
 		$cart->update();      		// UPDATE
  
     	//$admins = User::where('admin', true)->get();
@@ -46,24 +47,32 @@ class CartController extends Controller
 		//calcular el total de la factura antes de guardar 
 
 		if($existe){
-			/*
-	        // Carga un nuevo producto al carrito
 			$cart = DB::table('carts')->where([['user_id',$id],['status','Active']])->get();
+			$precio_producto =  DB::table('products')->where('id',$product_id)->get();
+			$precio_cart =  $cart[0]->total;
+			$total = ($precio_producto[0]->price * $cantidad) + $precio_cart;
+			
+	        // Carga un nuevo producto al carrito
 			$cartDetail = new CartDetail();
 			$cartDetail->cart_id = $cart[0]->id;
 			$cartDetail->product_id= $product_id;
 			$cartDetail->quantity = $cantidad;
 			$cartDetail->save();
-*/	
-		
-			return '';
-		}else{
+		    //Actualiza el total del carrito
+			DB::table('carts')->where([['user_id',$id],['status','Active']])->update(['total'=>$total]);
 
+
+			return '{ "total":'.$total.' }';
+		}else{
+            //calcular el precio del producto
+			$precio =  DB::table('products')->where('id',$product_id)->get();
+			$total = $precio[0]->price * $cantidad; 
 			// Crea un nuevo carrito
 			$cart = new Cart();
 			$cart->user_id = $id;
 			$cart->status = 'Active';
 			$cart->order_date = Carbon::now();
+			$cart->total = $total;
 			$cart->Save(); 
 			//carga el primer producto en el carrito
 			$cartDetail = new CartDetail();
@@ -72,7 +81,7 @@ class CartController extends Controller
 			$cartDetail->quantity = $cantidad;
 			$cartDetail->save();
 			
-			return 'No esta';
+			return '{ "total":'.$total.' }';
 		}
 
 	 }

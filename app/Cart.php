@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Cart extends Model
 {
@@ -16,7 +17,8 @@ class Cart extends Model
     	$total =0;
     	foreach ($this->details as $detail) {
     		$total += $detail->quantity * $detail->product->price;	
-    	}
+		}
+		DB::table('carts')->where('id',auth()->user()->cart->id)->update(['total'=>$total]);
     	return $total;
 
     }

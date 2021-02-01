@@ -24,7 +24,7 @@ Sistema web para gestión de pedidos en línea
 
 
 **Instalación:**
-* git clone https://github.com/LuisFaax/PedidosEnLinea.git
+* git clone https://github.com/OdalisAbreu/sendiupedidos
 * Composer update
 * Crear base de datos MySQL
 * Renombrar el archivo .env.example a .env y configurar la conexión a MySQL
