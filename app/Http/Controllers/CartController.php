@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Cart;
+use App\CartDetail;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\User;
@@ -14,7 +17,6 @@ class CartController extends Controller
  
  	public function update()
  	{
-		
 		$client = auth()->user();
 		
 		$order = new Order();
@@ -38,5 +40,40 @@ class CartController extends Controller
 		return redirect('home');
 		
 	 }
-	 
+	 public function crearcarrtito($id, $product_id, $cantidad){
+// Validar si esta creado ya el carrito 
+		$existe = DB::table('carts')->where([['user_id',$id],['status','Active']])->exists();
+		//calcular el total de la factura antes de guardar 
+
+		if($existe){
+			/*
+	        // Carga un nuevo producto al carrito
+			$cart = DB::table('carts')->where([['user_id',$id],['status','Active']])->get();
+			$cartDetail = new CartDetail();
+			$cartDetail->cart_id = $cart[0]->id;
+			$cartDetail->product_id= $product_id;
+			$cartDetail->quantity = $cantidad;
+			$cartDetail->save();
+*/	
+		
+			return '';
+		}else{
+
+			// Crea un nuevo carrito
+			$cart = new Cart();
+			$cart->user_id = $id;
+			$cart->status = 'Active';
+			$cart->order_date = Carbon::now();
+			$cart->Save(); 
+			//carga el primer producto en el carrito
+			$cartDetail = new CartDetail();
+			$cartDetail->cart_id = $cart->id;
+			$cartDetail->product_id= $product_id;
+			$cartDetail->quantity = $cantidad;
+			$cartDetail->save();
+			
+			return 'No esta';
+		}
+
+	 }
 }

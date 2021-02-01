@@ -19,7 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('/products', 'ProductController');
 Route::get('/product/{id}', 'productController@product');
+Route::resource('/categorias', 'CategoryController');
+Route::get('/categoria/{id}', 'CategoryController@verproducto');
 Route::resource('/order', 'OrderController');
-Route::get('/cliente/{name}/{email}/{phone}/{address}','ClienteController@crearcliente' ); 
 Route::get('/cliente/{phone}','ClienteController@existecliente');
-Route::resource('/category', 'CategoryController');
+Route::get('/cliente/{name}/{email}/{phone}/{address}','ClienteController@crearcliente' ); 
+Route::get('/cart/{id}/{product_id}/{cantidad}', 'CartController@crearcarrtito');

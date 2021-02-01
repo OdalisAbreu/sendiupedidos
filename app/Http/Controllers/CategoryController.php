@@ -16,7 +16,12 @@ class CategoryController extends Controller
   public function index()
   {
     $category = Category::all();
-    return response()->json($category);
+    return response()->json($category->load('products'));
+  }
+  
+  public function verproducto($id){
+    $category = Category::findOrFail($id);
+    return response()->json($category->load('products'));
   }
 
 
