@@ -29,6 +29,7 @@ Sistema web para gestión de pedidos en línea
 * Crear base de datos MySQL
 * Renombrar el archivo .env.example a .env y configurar la conexión a MySQL
 * Configurar en .env los datos para la gestión de envío de correos: MAIL_DRIVER=smtp MAIL_HOST=smtp.gmail.com MAIL_PORT=587 MAIL_USERNAME=tu email MAIL_PASSWORD=tu clave MAIL_ENCRYPTION=tls
+* apt install composer
 * php artisan migrate:install
 * php artisan migrate:refresh
 * php artisan db:seed
