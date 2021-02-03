@@ -61,8 +61,8 @@ class CartController extends Controller
 		    //Actualiza el total del carrito
 			DB::table('carts')->where([['user_id',$id],['status','Active']])->update(['total'=>$total]);
 
-
-			return '{ "total":'.$total.' }';
+			return response()->json($cart);
+			// return '{ "total":'.$total.' }';
 		}else{
             //calcular el precio del producto
 			$precio =  DB::table('products')->where('id',$product_id)->get();
@@ -81,8 +81,10 @@ class CartController extends Controller
 			$cartDetail->quantity = $cantidad;
 			$cartDetail->save();
 			
-			return '{ "total":'.$total.' }';
+			return response()->json($cart);
+            //return '{ "total":'.$total.' }';
 		}
 
 	 }
+	 
 }

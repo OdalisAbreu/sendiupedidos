@@ -25,3 +25,4 @@ Route::resource('/order', 'OrderController');
 Route::get('/cliente/{phone}','ClienteController@existecliente');
 Route::get('/cliente/{name}/{email}/{phone}/{address}','ClienteController@crearcliente' ); 
 Route::get('/cart/{id}/{product_id}/{cantidad}', 'CartController@crearcarrtito');
+Route::get('/order/{id}/{cart_id}/{total}', 'OrderController@order');

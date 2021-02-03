@@ -25,7 +25,7 @@
                     <td class="col-2">{{$order->id}}</td>
                     <td class="col-2">{{$order->status}}</td>
                     <td class="col-2">{{$order->user->name}}</td>
-                    <td class="col-2"> RD$ 500.00 </td>
+                    <td class="col-2">{{$order->cart->total}}</td>
                     <td class="col-4">
                         <a href="{{ url('orders/'.$order->id.'/Enviado')}}" class="btn btn-info"> Enviar </a>
                         |  

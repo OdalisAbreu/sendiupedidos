@@ -18,7 +18,7 @@ class Cart extends Model
     	foreach ($this->details as $detail) {
     		$total += $detail->quantity * $detail->product->price;	
 		}
-		DB::table('carts')->where('id',auth()->user()->cart->id)->update(['total'=>$total]);
+	//	DB::table('carts')->where('id',auth()->user()->cart->id)->update(['total'=>$total]);
     	return $total;
 
     }
