@@ -16,7 +16,10 @@ class CategoryController extends Controller
   public function index()
   {
     $category = Category::all();
-    return response()->json($category->load('products'));
+   // return response()->json($category->load('products'));
+  
+    $bot_category = '{ "categories": '.$category->load('products').'}';
+    return $bot_category;
   }
   
   public function verproducto($id){
