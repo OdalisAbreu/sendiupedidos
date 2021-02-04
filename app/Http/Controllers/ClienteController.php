@@ -32,7 +32,7 @@ class ClienteController extends Controller
             $user = DB::table('users')->where('phone', $phone)->get();
            return response()->json($user);
         }else{
-            $mensaje = '{ "id": 0}';
+            $mensaje = '{ "id": 0, "name": "NULL"}';
         return $mensaje;
         }
   
