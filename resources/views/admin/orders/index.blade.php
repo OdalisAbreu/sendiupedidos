@@ -22,17 +22,18 @@
                 </tr>
                 @foreach ($orders as $order)
                 <tr>
-                    <td class="col-2">{{$order->id}}</td>
+                    <td class="col-2"> <a href="{{ url('order/'.$order->id)}}"> Orden N. {{$order->id}} </a> </td>
                     <td class="col-2">{{$order->status}}</td>
                     <td class="col-2">{{$order->user->name}}</td>
                     <td class="col-2">{{$order->cart->total}}</td>
                     <td class="col-4">
-                        <a href="{{ url('orders/'.$order->id.'/Enviado')}}" class="btn btn-info"> Enviar </a>
+                        <a href="{{ url('orders/'.$order->id.'/Facturado')}}" class="btn btn-warning"> Facturado </a>
+                        | 
+                        <a href="{{ url('orders/'.$order->id.'/Pagado')}}" class="btn btn-info"> Pagado </a>
                         |  
-                        <a href="{{ url('orders/'.$order->id.'/Entregado')}}" class="btn btn-success"> Entregar </a>
+                        <a href="{{ url('orders/'.$order->id.'/Despachado')}}" class="btn btn-success"> Despachado </a>
                         |
                         <a href="{{ url('orders/'.$order->id.'/Cancelado')}}" class="btn btn-danger"> Cancelar </a> 
-                     <!-------   | <a href="#" class="btn btn-primary"> Ver pedido </a> -->
                     </td>
                 </tr>
                 @endforeach

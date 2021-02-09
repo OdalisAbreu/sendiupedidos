@@ -34,6 +34,8 @@ Route::post('/order', 'CartController@update');
 
 Route::resource('orders', 'OrderController');
 Route::get('orders/{id}/{status}', 'OrderController@editar');
+Route::get('order/{id}', 'PedidosController@show');
+Route::get('order-pdf','PedidosController@exportPdf');
 
 
 
