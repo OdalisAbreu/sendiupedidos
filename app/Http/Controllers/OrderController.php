@@ -22,13 +22,13 @@ class OrderController extends Controller
        
     }
 
-    public function show($id)
+    /* public function show($id)
     {
         //
         $order = Order::findOrFail($id);
         return response()->json($order->load('cart'));
         
-    }
+    }*/
     public function editar($id, $status){
        
         // Muestra las ordenes realizadas de todos los usuarios en la parte Web
@@ -52,5 +52,22 @@ class OrderController extends Controller
         
         return $order;
 		
+    }
+
+    public function orderuser($user_id){
+        $ids ="";
+        $existe = DB::table('orders')->where('user_id', $user_id)->exists();
+        
+        if ($existe){
+            $user_order = DB::table('orders')->where('user_id', $user_id)->get();
+    
+            foreach ($user_order as $order){
+                $ids .= $order->id.' - ';
+            }
+            return '{ "Mensaje": "Su(s) número(s) de orden(es): '.$ids.'"}';
+        }else{
+            return '{ "Mensaje": "No tiene ordenes pendientes"}';
+        }
+       // return response()->json($user_order);
     }
 }
