@@ -22,6 +22,7 @@ Route::get('/product/{id}', 'productController@product');
 Route::resource('/categorias', 'CategoryController');
 Route::get('/categoria/{id}', 'CategoryController@verproducto');
 Route::get('/order/{id}', 'OrderController@orderuser');
+Route::get('/order/{id}/{orderid}', 'OrderController@vieworder');
 Route::get('/cliente/{phone}','ClienteController@existecliente');
 Route::get('/cliente/{name}/{email}/{phone}/{address}','ClienteController@crearcliente' ); 
 Route::get('/cart/{id}/{product_id}/{cantidad}', 'CartController@crearcarrtito');

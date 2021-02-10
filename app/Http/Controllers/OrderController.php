@@ -70,4 +70,9 @@ class OrderController extends Controller
         }
        // return response()->json($user_order);
     }
+
+    public function vieworder($user_id, $order_id){
+        $user_order = DB::table('orders')->where(['user_id'=>$user_id,'id'=>$order_id])->get();
+        return response()->json($user_order);
+    }
 }
