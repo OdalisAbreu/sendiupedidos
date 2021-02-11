@@ -66,7 +66,7 @@ class OrderController extends Controller
             }
             return '{ "Mensaje": "Su(s) número(s) de orden(es): '.$ids.'"}';
         }else{
-            return '{ "Mensaje": "No tiene ordenes pendientes"}';
+            return '{ "Mensaje": "NULL"}';
         }
        // return response()->json($user_order);
     }
