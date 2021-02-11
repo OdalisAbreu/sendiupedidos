@@ -62,11 +62,11 @@ class OrderController extends Controller
             $user_order = DB::table('orders')->where('user_id', $user_id)->get();
     
             foreach ($user_order as $order){
-                $ids .= $order->id.' - ';
+                $ids .= ', '.$order->id;
             }
             return '{ "Mensaje": "Su(s) número(s) de orden(es): '.$ids.'"}';
         }else{
-            return '{ "Mensaje": "NULL"}';
+            return '{ "Mensaje": "nulo"}';
         }
        // return response()->json($user_order);
     }
