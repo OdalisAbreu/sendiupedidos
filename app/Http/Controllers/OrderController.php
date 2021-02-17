@@ -64,7 +64,7 @@ class OrderController extends Controller
             foreach ($user_order as $order){
                 $ids .= ', '.$order->id;
             }
-            return '{ "mensaje": "Su(s) número(s) de orden(es): '.$ids.'"}';
+            return '{ "mensaje": "Su(s) número(s) de orden(es) '.$ids.'"}';
         }else{
             return '{ "mensaje": "nulo"}';
         }
