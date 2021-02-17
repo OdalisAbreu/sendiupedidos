@@ -49,16 +49,16 @@
                     <tr>
                         <td>{{$cart->product->name}}</td>
                         <td>{{$cart->quantity}}</td>
-                        <td>{{$cart->product->price}}</td>
-                        <td><?php echo $cart->product->price *0.18; ?> </td>
-                        <td><?php echo ($cart->product->price + ($cart->product->price *0.18)) * $cart->quantity ?> </td>
+                        <td>{{ number_format($cart->product->price, 2)}}</td>
+                        <td><?php echo number_format($cart->product->price *0.18, 2); ?> </td>
+                        <td><?php echo number_format(($cart->product->price + ($cart->product->price *0.18)) * $cart->quantity, 2) ?> </td>
                      </tr>
                      @endforeach
                  </table>
                  <p> 
-                     SubTotal: {{$orders->cart->total}} <br />
-                     ITBIS: <?php echo $orders->cart->total *0.18; ?> <br />
-                     Total:  <?php echo $orders->cart->total + ($orders->cart->total *0.18); ?>
+                     SubTotal: RD$ {{number_format($orders->cart->total, 2)}} <br />
+                     ITBIS: RD$ <?php echo number_format($orders->cart->total *0.18, 2); ?> <br />
+                     Total: RD$ <?php echo number_format($orders->cart->total + ($orders->cart->total *0.18), 2); ?>
                  </p>
              
                 El pago debe ser efectuado en un plazo de 3 días 
