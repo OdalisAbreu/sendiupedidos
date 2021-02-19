@@ -21,7 +21,8 @@ Auth::routes();
 Route::get('/search', 'SearchController@show');
 Route::get('products/json', 'SearchController@data');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'OrderController@index')->name('home');
 Route::get('products/{id}', 'ProductController@show');
 Route::get('categories/{category}', 'CategoryController@show');
 
