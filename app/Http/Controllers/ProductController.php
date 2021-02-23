@@ -26,7 +26,7 @@ class ProductController extends Controller
   public function index()
    {  
          $product = Product::all();
-         return response()->json($product);
+         return response()->json($product->load('images'));
 
    }
    

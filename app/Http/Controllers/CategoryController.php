@@ -18,7 +18,7 @@ class CategoryController extends Controller
     $category = Category::all();
    // return response()->json($category->load('products'));
   
-    $bot_category = '{ "categories": '.$category->load('products').'}';
+    $bot_category = '{ "categories": '.$category.'}';
     return $bot_category;
   }
   
