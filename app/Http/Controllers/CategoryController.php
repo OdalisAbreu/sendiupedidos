@@ -29,8 +29,8 @@ class CategoryController extends Controller
       $products = DB::table('categories')
                   ->join('products', 'products.category_id','=','categories.id')
                   ->join('product_images','product_images.product_id', '=','products.id')
-                  ->where('categories.id', $id)
-                  ->select('categories.name','products.id','products.name','products.price','product_images.image')
+                  ->where([['categories.id', $id],['product_images.featured','1']])
+                  ->select('categories.name','products.id','products.name','products.price', 'product_images.featured', 'product_images.image')
                   ->get();
       return '{ "products": '.$products.'}';
   }
