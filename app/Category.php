@@ -21,7 +21,8 @@ class Category extends Model
     // $category->products
     public function products()
     {
-    	return $this->hasMany(Product::class); //una categoria tiene muchos productos
+      $produc = $this->hasMany(Product::class);
+    	return $produc; //una categoria tiene muchos productos
     }
 
     public function getFeaturedImageUrlAttribute()
