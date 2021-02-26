@@ -19,7 +19,7 @@
 @endsection
 
 @section('content')    
-<div class="header header-filter" style="background-image: url('images/img2.jpg');"></div>
+<div class="header header-filter" style="background-image: url('public/images/img2.jpg');"></div>
 
 <div class="main main-raised">
 <div class="profile-content">

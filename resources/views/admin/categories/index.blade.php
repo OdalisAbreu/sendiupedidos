@@ -6,7 +6,7 @@
 
 
 @section('content')
-<div class="header header-filter" style="background-image: url({{ asset('/img/bg1.jpg')}});">
+<div class="header header-filter" style="background-image: url({{ asset('/public/img/bg1.jpg')}});">
 </div>
 
 <div class="main main-raised">

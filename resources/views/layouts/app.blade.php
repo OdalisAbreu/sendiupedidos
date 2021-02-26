@@ -51,7 +51,7 @@
 
                                 <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{ url('/home') }}">Dashboard</a>
+                                    <a href="{{ url('/home') }}">Gestionar Pedidos</a>
                                 </li>
                                     @if (auth()->user()->admin)
                                         <li>
@@ -59,9 +59,6 @@
                                         </li>
                                          <li>
                                             <a href="{{ url('/admin/categories') }}">Gestionar categorias</a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ url('/orders') }}">Gestionar Pedidos</a>
                                         </li>
                                     @endif
                                     <li>
@@ -95,7 +92,7 @@
                                 <i class="material-icons">web</i>
                             </a>
                         @else
-                            <a href="{{url('/home')}}" class="btn btn-simple btn-white btn-just-icon">
+                            <a href="{{url('/car')}}" class="btn btn-simple btn-white btn-just-icon">
                                 <i class="material-icons">shopping_cart</i>
                             </a>                           
                         @endguest

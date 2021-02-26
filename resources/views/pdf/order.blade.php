@@ -16,7 +16,7 @@
              
             <div id="html-content-holder" class="contenido" >
  
-                <img src="{{ asset('/images/logo/sendiu_logo.png') }}" class="img-rounded">
+                <img src="{{ asset('/public/images/logo/sendiu_logo.png') }}" class="img-rounded">
                
                 <div>
                    <p> SENDIU SRL <br />

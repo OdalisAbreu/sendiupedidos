@@ -20,7 +20,7 @@ class ProductImage extends Model
     		return $this->image;
     	}
 
-    	return '/images/products/' . $this->image;
+    	return '/public/images/products/' . $this->image;
 
     }
 

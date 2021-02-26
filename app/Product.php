@@ -31,7 +31,7 @@ class Product extends Model
         }
 
         //default
-        return '/images/default.png';
+        return '/public/images/default.png';
 
     }
 

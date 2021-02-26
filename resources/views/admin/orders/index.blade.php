@@ -7,7 +7,7 @@
 
 @section('content')
 
-<div class="header header-filter" style="background-image: url({{ asset('/img/bg1.jpg')}});">
+<div class="header header-filter" style="background-image: url({{ asset('/public/img/bg1.jpg')}});">
 </div>
 <div class="main main-raised">
     <div class="container">
@@ -27,13 +27,19 @@
                     <td class="col-2">{{$order->user->name}}</td>
                     <td class="col-2">{{$order->cart->total}}</td>
                     <td class="col-4">
+                        @if ($order->status == 'Pendiente')
+                        |
                         <a href="{{ url('orders/'.$order->id.'/Facturado')}}" class="btn btn-warning"> Facturado </a>
                         | 
+                        @elseif ($order->status == 'Facturado')
+                        |
                         <a href="{{ url('orders/'.$order->id.'/Pagado')}}" class="btn btn-info"> Pagado </a>
+                        |
+                        @elseif ($order->status == 'Pagado')
                         |  
                         <a href="{{ url('orders/'.$order->id.'/Despachado')}}" class="btn btn-success"> Despachado </a>
                         |
-                        <a href="{{ url('orders/'.$order->id.'/Cancelado')}}" class="btn btn-danger"> Cancelar </a> 
+                        @endif
                     </td>
                 </tr>
                 @endforeach

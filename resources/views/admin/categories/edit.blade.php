@@ -44,7 +44,7 @@
                             @if($category->image)
                             <p class="help-block text-left">
                             Subir solo si desea reemplazar la
-                                <a href="{{ asset('/images/categories/'. $category->image) }}" target="_blank">imágen actual</a>
+                                <a href="{{ asset('/public/images/categories/'. $category->image) }}" target="_blank">imágen actual</a>
                             </p>    
                             @endif
                         </div>

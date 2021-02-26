@@ -28,14 +28,14 @@ class Category extends Model
     public function getFeaturedImageUrlAttribute()
     {
       if($this->image){
-          return '/images/categories/' . $this->image;
+          return '/public/images/categories/' . $this->image;
       }else{
 
         $firstProduct = $this->products()->first();    
         if($firstProduct)   
             return $firstProduct->featured_image_url;
           else
-            return '/images/default.png';
+            return '/public/images/default.png';
       }
 
     }
