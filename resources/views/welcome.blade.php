@@ -23,7 +23,7 @@
 
 @section('content')
   
-<div class="header header-filter" style="background-image: url({{ asset('public/images/img1.jpg')}});">
+<div class="header header-filter" style="background-image: url({{ asset('public/images/BotPro4.png')}});">
  
 
     <div class="container">

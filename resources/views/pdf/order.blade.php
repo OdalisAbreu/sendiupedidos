@@ -9,6 +9,10 @@
         {
             padding: 13px !important;
         }
+        .logo
+        {   
+            width: 225px;
+        }
     </style>
     <title></title>
 </head>
@@ -16,10 +20,10 @@
              
             <div id="html-content-holder" class="contenido" >
  
-                <img src="{{ asset('/public/images/logo/sendiu_logo.png') }}" class="img-rounded">
+                <img src="{{ asset('/public/images/logo/Botpro_logo.png') }}" class="logo"> <br>
                
                 <div>
-                   <p> SENDIU SRL <br />
+                   <p> BotPRo <br />
                     Calle Paseo de los Locutores No.27 <br />
                     Evaristo Morales <br />
                     Distrito Nacional <br />

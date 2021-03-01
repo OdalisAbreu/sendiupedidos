@@ -48,7 +48,7 @@ class ImageController extends Controller
         {
             $deleted = true;
         }else{
-            $fullPath = public_path() . '/images/products' . $productImage->image;
+            $fullPath = public_path() . '/public/images/products' . $productImage->image;
             $deleted = File::delete($fullPath);
         }
 
