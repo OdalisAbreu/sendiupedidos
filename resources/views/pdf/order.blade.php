@@ -40,9 +40,9 @@
                 <table class="table table-striped"
                     <tr>
                         <th>Descripción</th>
-                        <th>Cantida</th>
+                        <th>Cantidad</th>
                         <th>Precio Unidad</th>
-                        <th>18 % ITEBIS</th>
+                        <th>18 % ITBIS</th>
                         <th>Importe</th>
                     </tr>
                     @foreach ($orders->cart->details  as $cart)
@@ -64,10 +64,15 @@
                 El pago debe ser efectuado en un plazo de 3 días 
 
          </div>
+         
          <div style="padding: 18px !important;">
              <a id="btn-Convert-Html2Image" class="btn btn-info" href="#"> Descargar </a>
-         </div>
-       
+             
+             @guest
+              @else
+                 <a href="{{ url('orders/'.$orders->id.'/Cancelado?type=canceladas')}}" class="btn btn-success"> Cancelado </a>
+             @endguest
+        </div>
 
         <div id="previewImage" style="display: none">
         </div>
@@ -94,8 +99,7 @@
                 var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
                 $("#btn-Convert-Html2Image").attr("download", "Orden.png").attr("href", newData);
             });
-            
-            setTimeout(precargar, 2000);
+
 
 
            
