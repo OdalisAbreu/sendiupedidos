@@ -18,22 +18,24 @@ Route::get('/', 'TestController@welcome');
 
 Auth::routes();
 
+//General
 Route::get('/search', 'SearchController@show');
-Route::get('products/json', 'SearchController@data');
-
-Route::get('/car', 'HomeController@index')->name('home');
 Route::get('/home', 'OrderController@index')->name('home');
-Route::get('/map', 'OrderController@map')->name('home');
+Route::get('/map', 'DirectionsController@map')->name('home');
+
+
+//Product
+Route::get('products/json', 'SearchController@data');
 Route::get('products/{id}', 'ProductController@show');
 Route::get('categories/{category}', 'CategoryController@show');
 
+//Cart
+Route::get('/car', 'HomeController@index')->name('home');
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
 
+//Order
 Route::post('/order', 'CartController@update');
-//Route::resource('/order', 'OrderController');
-
-
 Route::resource('orders', 'OrderController');
 Route::get('orders/{id}/{status}', 'OrderController@editar');
 Route::get('order/{id}', 'PedidosController@show');
