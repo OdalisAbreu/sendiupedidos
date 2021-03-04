@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Order;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use FarhanWazir\GoogleMaps\GMaps;
 
 class OrderController extends Controller
 {
@@ -79,5 +80,33 @@ class OrderController extends Controller
     public function vieworder($user_id, $order_id){
         $user_order = DB::table('orders')->where(['user_id'=>$user_id,'id'=>$order_id])->get();
         return response()->json($user_order);
+    }
+
+    public function map(){
+       
+        $gmap = new GMaps();
+
+       // $config['center'] = '{ lat: -34.397, lng: 120.644 }';
+       $config['center'] = '18.445480, -69.950365';
+        $config['zoom'] = '14';
+        $config['map_height'] = '600px'; 
+        //$config['map_width'] = '500px';
+       // $config['scrollwheel'] = false;
+        
+        $gmap->initialize($config);
+
+        //Añadir marca
+        $marker['position'] = '18.445480, -69.950365';
+        //$marker['location'] = '18.463142, -69.941539';
+        // $marker['infowindow_content'] = '18.463142, -69.941539';
+        //$marker['icon'] = 'URL';
+        $gmap->add_marker($marker);
+
+
+        $map = $gmap->create_map();
+
+
+
+        return view('admin.orders.map')->with('map', $map);
     }
 }

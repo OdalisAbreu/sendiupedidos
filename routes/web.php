@@ -23,6 +23,7 @@ Route::get('products/json', 'SearchController@data');
 
 Route::get('/car', 'HomeController@index')->name('home');
 Route::get('/home', 'OrderController@index')->name('home');
+Route::get('/map', 'OrderController@map')->name('home');
 Route::get('products/{id}', 'ProductController@show');
 Route::get('categories/{category}', 'CategoryController@show');
 
