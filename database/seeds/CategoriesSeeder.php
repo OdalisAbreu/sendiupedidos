@@ -12,7 +12,7 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Categories')->insert([
+        DB::table('categories')->insert([
         [
             'name' =>'Electronicos',
             'description' => 'Tienda de Electronicos',
