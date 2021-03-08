@@ -74,7 +74,7 @@
              
              @guest
               @else
-                 <a href="{{ url('orders/'.$orders->id.'/Cancelado?type=canceladas')}}" class="btn btn-success"> Cancelado </a>
+                 <a href="{{ url('orders/'.$orders->id.'/Cancelado?type=canceladas')}}" class="btn btn-danger"> Cancelado </a>
              @endguest
         </div>
 
