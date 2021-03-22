@@ -72,7 +72,7 @@ class DirectionsController extends Controller
         $long2 = explode(":",$long1);
         $long = $long2[1];
 
-        $json = '{"lat": "'.$lat.'", "Long": "'.$long.'"}' ;
+        $json = '{"lat": "'.$lat.'", "long": "'.$long.'"}' ;
 
         return $json;
 
