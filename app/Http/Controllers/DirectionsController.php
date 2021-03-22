@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Directions;
 use Illuminate\Http\Request;
 use FarhanWazir\GoogleMaps\GMaps;
+use Illuminate\Support\Facades\DB;
 
 class DirectionsController extends Controller
 {
@@ -54,13 +55,25 @@ class DirectionsController extends Controller
 
     public function guardarMap($name, $description, $lat, $log, $user_id){
        
-        $direction = new Directions();
-	    $direction->name = $name;
-		$direction->description = $description;
-		$direction->lat = $lat;
-        $direction->log = $log;
-        $direction->user_id = $user_id;
-        $direction->save();
+        $existe =  DB::table('directions')->where(['user_id'=>$user_id, 'lat'=>$lat, 'log'=>$log])->exists();
+
+        if($existe){
+            $name_dirrecion =  DB::table('directions')->where(['user_id'=>$user_id, 'lat'=>$lat, 'log'=>$log])->get('name');
+            $nombre = $name_dirrecion[0]->name;
+            $mensaje = '{ "message": "Esta dirección ya fue registrada con el nombre: '.$nombre.'" }';
+        }else{
+            $direction = new Directions();
+            $direction->name = $name;
+            $direction->description = $description;
+            $direction->lat = $lat;
+            $direction->log = $log;
+            $direction->user_id = $user_id;
+            $direction->save();
+
+            $mensaje = '{ "message": "dirección registrada correctamente" }';
+        }
+
+        return $mensaje;
 
     }
 
