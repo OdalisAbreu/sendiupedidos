@@ -51,13 +51,6 @@
 
                             <div class="input-group">
                                 <span class="input-group-addon">
-                                    <i class="material-icons">class</i>
-                                </span>
-                                <input id="address" type="text" placeholder="Dirección" class="form-control" name="address" value="{{ old('address') }}" required>
-                            </div>  
-
-                            <div class="input-group">
-                                <span class="input-group-addon">
                                     <i class="material-icons">lock_outline</i>
                                 </span>                          
                                   <input id="password" placeholder="Contraseña" type="password" class="form-control" name="password" required>

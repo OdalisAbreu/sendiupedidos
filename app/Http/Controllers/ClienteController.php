@@ -8,7 +8,7 @@ use PhpParser\Node\Stmt\Return_;
 
 class ClienteController extends Controller
 {
-    public function crearcliente($name, $email, $phone, $address){
+    public function crearcliente($name, $email, $phone){
 
       $existe = DB::table('users')->where('email',$email)->exists();
 
@@ -17,7 +17,7 @@ class ClienteController extends Controller
         return $mensaje;
       }else{
           DB::table('users')->insert([
-            ['name'=>$name, 'email'=>$email, 'phone' =>$phone, 'address' =>$address, 'password' =>bcrypt($phone)]
+            ['name'=>$name, 'email'=>$email, 'phone' =>$phone, 'password' =>bcrypt($phone)]
           ]);
     
           $user = DB::table('users')->where('phone', $phone)->get();
