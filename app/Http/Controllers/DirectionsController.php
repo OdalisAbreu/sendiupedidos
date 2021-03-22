@@ -18,67 +18,7 @@ class DirectionsController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Directions  $directions
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Directions $directions)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Directions  $directions
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Directions $directions)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Directions  $directions
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Directions $directions)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Directions  $directions
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy(Directions $directions)
     {
         //
@@ -110,5 +50,31 @@ class DirectionsController extends Controller
 
 
         return view('admin.orders.map')->with('map', $map);
+    }
+
+    public function guardarMap($name, $description, $lat, $log, $user_id){
+       
+        $direction = new Directions();
+	    $direction->name = $name;
+		$direction->description = $description;
+		$direction->lat = $lat;
+        $direction->log = $log;
+        $direction->user_id = $user_id;
+        $direction->save();
+
+    }
+
+    public function consultmap($coordenadas){
+
+        $direction = explode(" ",$coordenadas);
+        $lat = $direction[1];
+        $long1 = $direction[3];
+        $long2 = explode(":",$long1);
+        $long = $long2[1];
+
+        $json = '{"lat": "'.$lat.'", "Long": "'.$long.'"}' ;
+
+        return $json;
+
     }
 }
