@@ -60,6 +60,8 @@ class CartController extends Controller
 			$cartDetail->save();
 		    //Actualiza el total del carrito
 			DB::table('carts')->where([['user_id',$id],['status','Active']])->update(['total'=>$total]);
+			
+			$cart = DB::table('carts')->where([['user_id',$id],['status','Active']])->get();
 
 			return response()->json($cart);
 			// return '{ "total":'.$total.' }';

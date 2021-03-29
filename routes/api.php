@@ -26,6 +26,6 @@ Route::get('/order/{id}/{orderid}', 'OrderController@vieworder');
 Route::get('/cliente/{phone}','ClienteController@existecliente');
 Route::get('/cliente/{name}/{email}/{phone}','ClienteController@crearcliente' ); 
 Route::get('/cart/{id}/{product_id}/{cantidad}', 'CartController@crearcarrtito');
-Route::get('/order/{id}/{cart_id}/{total}', 'OrderController@order');
+Route::get('/order/{id}/{cart_id}/{total}/{direction}', 'OrderController@order');
 Route::get('/direction/{name}/{desccription}/{lat}/{log}/{user_id}','DirectionsController@guardarMap');
 Route::get('/direction/{coordenadas}','DirectionsController@consultmap');

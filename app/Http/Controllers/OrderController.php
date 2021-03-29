@@ -46,7 +46,7 @@ class OrderController extends Controller
                  return view('admin.orders.index',$orders)->with('user','cart');
     }
 
-    public function order($id, $cart_id){
+    public function order($id, $cart_id, $direction){
         //Actualiza el carrito
         DB::table('carts')->where('id',$cart_id)->update(['status'=>'Pending'],['order_date'=> Carbon::now()]);
         //guarda la orden
@@ -54,6 +54,7 @@ class OrderController extends Controller
 	    $order->cart_id = $cart_id;
 		$order->user_id = $id;
 		$order->status = 'Pendiente';
+        $order->direction_id = $direction;
         $order->save();
         
         return $order;

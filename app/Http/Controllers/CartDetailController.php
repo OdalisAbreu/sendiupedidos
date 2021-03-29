@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CartDetail;
+use Illuminate\Support\Facades\DB;
 
 class CartDetailController extends Controller
 {
@@ -35,7 +36,9 @@ class CartDetailController extends Controller
     	if($cartDetail->cart_id == auth()->user()->cart->id) 	
     		$cartDetail->delete();
 
-    	$msg ="Producto eliminado del carrito";
+			DB::table('carts')->where([['id',auth()->user()->cart->id],['status','Active']])->update(['total'=>auth()->user()->cart->total]);
+
+    	$msg ='Producto eliminado del carrito ';
     	return back()->with(compact('msg'));
 
     }	
