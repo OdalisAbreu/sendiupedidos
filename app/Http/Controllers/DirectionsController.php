@@ -90,4 +90,33 @@ class DirectionsController extends Controller
         return $json;
 
     }
+
+    
+    public function verdirection($user_id){
+        $value ="";
+        $existe = DB::table('directions')->where('user_id', $user_id)->exists();
+
+        if($existe){
+            $direcciones = DB::table('directions')->where('user_id', $user_id)->get();
+
+            foreach ($direcciones as $direccion){
+
+                $value .= '::'.$direccion->name;
+            }
+            $mensaje =  '{ "mensaje": "'.$value.'"}';
+        }else{
+            $mensaje = '"mensaje": "Usted no tiene dirrecciones Registradas::Para ragistrar una nueva escribe nueva"';
+        }
+
+        return $mensaje;
+    }
+
+    public function validardirrecion($user_id, $name_direcction){
+
+        $existe = DB::table('directions')->where(['user_id'=>$user_id,'name'=>$name_direcction])->exists();
+
+        if($existe){
+            return '"existe": "ok"';
+        }
+    }
 }
