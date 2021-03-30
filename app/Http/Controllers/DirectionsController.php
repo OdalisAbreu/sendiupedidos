@@ -105,7 +105,7 @@ class DirectionsController extends Controller
             }
             $mensaje =  '{ "mensaje": "'.$value.'"}';
         }else{
-            $mensaje = '"mensaje": "Usted no tiene dirrecciones Registradas::Para ragistrar una nueva escribe nueva"';
+            $mensaje = '{"mensaje": "Usted no tiene dirrecciones Registradas::Para ragistrar una nueva escribe nueva"}';
         }
 
         return $mensaje;

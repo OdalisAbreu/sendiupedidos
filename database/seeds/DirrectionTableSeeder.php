@@ -14,7 +14,7 @@ class DirrectionTableSeeder extends Seeder
     {
         Directions::create([
             'name' =>'Local',
-            'description' => 'AV. prolongacion 27 de ebrero Colinas del Oeste # 15 ',
+            'description' => 'AV. prolongacion 27 de ebrero Colinas del Oeste # 15',
             'lat' => '18.459397265392433',
             'log' => '-69.98523056787853',
             'user_id' => '1'
