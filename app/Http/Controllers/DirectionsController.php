@@ -105,7 +105,7 @@ class DirectionsController extends Controller
             }
             $mensaje =  '{ "mensaje": "'.$value.'"}';
         }else{
-            $mensaje = '{"mensaje": "Usted no tiene dirrecciones Registradas::Para ragistrar una nueva escribe nueva"}';
+            $mensaje = '{"mensaje": "Usted no tiene direcciones Registradas"}';
         }
 
         return $mensaje;
@@ -116,7 +116,7 @@ class DirectionsController extends Controller
         $existe = DB::table('directions')->where(['user_id'=>$user_id,'name'=>$name_direcction])->exists();
 
         if($existe){
-            return '"existe": "ok"';
+            return '{"existe": "ok"}';
         }
     }
 }
