@@ -40,4 +40,5 @@ Route::get('/direction/{name}/{desccription}/{lat}/{log}/{user_id}','DirectionsC
 Route::get('/direction/{coordenadas}','DirectionsController@consultmap');
 Route::get('/user_direction/{user_id}','DirectionsController@verdirection');
 Route::get('/validar_direction/{user_id}/{name}','DirectionsController@validardirrecion');
+Route::get('/note_direction/{id}/{note}','DirectionsController@notedirection');
 

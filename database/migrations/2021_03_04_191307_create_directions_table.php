@@ -19,6 +19,7 @@ class CreateDirectionsTable extends Migration
             $table->string('description');
             $table->string('lat');
             $table->string('log');
+            $table->string('note')->nullable();
 
             //FK
             $table->integer('user_id')->unsigned();

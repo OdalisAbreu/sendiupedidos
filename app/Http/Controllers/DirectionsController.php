@@ -70,7 +70,7 @@ class DirectionsController extends Controller
             $direction->user_id = $user_id;
             $direction->save();
 
-            $mensaje = '{ "message": "dirección registrada correctamente" }';
+            $mensaje = '{ "message": "dirección registrada correctamente", "direcction_id": "'.$direction->id.'" }';
         }
 
         return $mensaje;
@@ -118,5 +118,11 @@ class DirectionsController extends Controller
         if($existe){
             return '{"existe": "ok"}';
         }
+    }
+
+    public function notedirection($id,$note){
+        DB::table('directions')->where('id',$id)->update(['note'=>$note]);
+
+        return '{"mensaje": "Nota agregada correctamente"}';
     }
 }
