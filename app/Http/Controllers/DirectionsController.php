@@ -116,7 +116,10 @@ class DirectionsController extends Controller
         $existe = DB::table('directions')->where(['user_id'=>$user_id,'name'=>$name_direcction])->exists();
 
         if($existe){
-            return '{"existe": "ok"}';
+            $direction = DB::table('directions')->where(['user_id'=>$user_id,'name'=>$name_direcction])->get();
+
+          //  return $direction;
+           return '{"existe": "ok", "direction_id": "'.$direction[0]->id.'", "description": "'.$direction[0]->description.'" }';
         }
     }
 

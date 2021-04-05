@@ -33,6 +33,7 @@ Route::get('/categoria/{id}', 'CategoryController@verproducto');
 Route::get('/order/{id}', 'OrderController@orderuser');
 Route::get('/order/{id}/{orderid}', 'OrderController@vieworder');
 Route::get('/order/{id}/{cart_id}/{direction_id}', 'OrderController@order');
+Route::get('/update_order/{order_id}/{direccion_id}', 'OrderController@updatedirrection');
 Route::get('/cart/{id}/{product_id}/{cantidad}', 'CartController@crearcarrtito');
 
 //Dirreccion

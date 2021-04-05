@@ -83,5 +83,11 @@ class OrderController extends Controller
         return response()->json($user_order);
     }
 
+    public function updatedirrection($order_id, $direction_id){
+        DB::table('orders')->where('id',$order_id)->update(['direction_id'=>$direction_id]);
+
+        return '{ "mensaje": "Update complete"}';
+    }
+
 
 }
