@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use App\Order;
 use Carbon\Carbon;
 

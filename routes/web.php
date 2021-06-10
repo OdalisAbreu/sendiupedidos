@@ -1,17 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-//https://akivaron.github.io/miminium/credits.html
-
 use App\Http\Controllers\OrderController;
 
 Route::get('/', 'TestController@welcome');
@@ -20,7 +8,6 @@ Auth::routes();
 
 //General
 Route::get('/search', 'SearchController@show');// Busqueda
-Route::get('/home', 'OrderController@index')->name('home');// Manejo de ordenes
 Route::get('/map', 'DirectionsController@map')->name('home'); // Vista del MApa
 
 
@@ -34,11 +21,7 @@ Route::get('/car', 'HomeController@index')->name('home'); //Vista del carrito
 Route::post('/cart', 'CartDetailController@store'); // Guardar Carrito
 Route::delete('/cart', 'CartDetailController@destroy');//Eliminar carrito
 
-//Order
-Route::post('/order', 'CartController@update'); // Actualizar controler 
-Route::get('orders/{id}/{status}', 'OrderController@editar'); // Editar status de orden
-Route::get('order/{id}', 'PedidosController@show'); // Vista de impresion de la orden 
-Route::get('order-pdf','PedidosController@exportPdf'); // Vista PDF de la orden
+
 
 
 
@@ -63,6 +46,7 @@ Route::middleware(['auth','admin'])->namespace('admin')->prefix('admin')->group(
 	
 	Route::post('/categories/{category}/edit', 'CategoryController@update'); //actualizar
 	Route::delete('/categories/{category}', 'CategoryController@destroy'); //eliminar
-
+	Route::get('/home', 'OrderController@index');// Manejo de ordenes
+	
 	
 });

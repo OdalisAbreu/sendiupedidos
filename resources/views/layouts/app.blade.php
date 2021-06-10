@@ -51,7 +51,7 @@
 
                                 <ul class="dropdown-menu">
                                 <li>
-                                    <a href="{{ url('/home') }}">Gestionar Pedidos</a>
+                                    <a href="{{ url('/admin/home') }}">Gestionar Pedidos</a>
                                 </li>
                                     @if (auth()->user()->admin)
                                         <li>
