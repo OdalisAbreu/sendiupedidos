@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'BotPro')
+@section('title', 'Kaomi')
 
 @section('body-class', 'landing-page')
 
@@ -23,30 +23,51 @@
 
 @section('content')
   
-<div class="header header-filter" style="background-image: url({{ asset('public/images/BotPro4.png')}});">
+<div class="header header-filter" style="background-image: url({{ asset('public/images/Order_Manager.jpg')}});">
  
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h1 class="title">Bienvenidos BotPro Gestor de Pedidos!</h1>
-                <h4>Realiza pedidos en línea y nosotros coordinamos la entrega.</h4>
-                <br />
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
-                    <i class="fa fa-play"></i> ¿Cómo funciona?
-                </a>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="main main-raised">
     <div class="container">
 
+        <div class="section text-center">
+            <h2 class="title" id="cats">Visita nuestras categorías</h2>
+
+            <form  class="form-inline" method="get" action="{{ url('/search') }}">
+                <input id="search"type="text" class="form-control" placeholder="¿Qué productos buscas?" name="query">
+                <button class="btn btn-primary btn-fab btn-fab-mini btn-round">
+                    <i class="material-icons">search</i>
+                </button>
+            </form>
+    
+            <div class="team">
+                <div class="row">
+                    @foreach ($categories as $category)
+                    <div class="col-md-4">
+                        <div class="team-player">
+                            <a href="{{ url('/categories/'. $category->id) }}">
+                                <img src="{{ $category->featured_image_url }}" alt="Imágen de la categoria {{ $category->name }}" class="img-rounded">
+                                <h4 class="title">
+                                    {{ $category->name }} 
+                            </a> 
+                            <br>
+                                <small class="text-muted">{{ $category->category_name }}</small>
+                            </h4>
+                            <p class="description">{{ $category->description }}</p>
+                           
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+               
+            </div>
+
+        </div>
         <div class="section text-center section-landing">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h2 class="title">¿Por qué comprar en App Shop?</h2>
+                    <h2 class="title">¿Por qué Vender con Nuestro order Manager?</h2>
                     <h5 class="description">Nuestra variedad de productos te permiten una elección perfecta, además de que manejamos los precios más accesibles del mercado. !Checa y Compara¡</h5>
                 </div>
             </div>
@@ -83,39 +104,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="section text-center">
-            <h2 class="title" id="cats">Visita nuestras categorías</h2>
-
-            <form  class="form-inline" method="get" action="{{ url('/search') }}">
-                <input id="search"type="text" class="form-control" placeholder="¿Qué productos buscas?" name="query">
-                <button class="btn btn-primary btn-fab btn-fab-mini btn-round">
-                    <i class="material-icons">search</i>
-                </button>
-            </form>
-    
-            <div class="team">
-                <div class="row">
-                    @foreach ($categories as $category)
-                    <div class="col-md-4">
-                        <div class="team-player">
-                            <img src="{{ $category->featured_image_url }}" alt="Imágen de la categoria {{ $category->name }}" class="img-rounded">
-                            <h4 class="title">
-                           <a href="{{ url('/categories/'. $category->id) }}"> {{ $category->name }} </a> 
-                            <br>
-                                <small class="text-muted">{{ $category->category_name }}</small>
-                            </h4>
-                            <p class="description">{{ $category->description }}</p>
-                           
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-               
-            </div>
-
-        </div>
-
 
         <div class="section landing-section">
             <div class="row">

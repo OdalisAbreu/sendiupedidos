@@ -41,7 +41,7 @@
                                 <td class="col-2">{{$order->user->name}}</td>
                                 <td class="col-2">{{$order->cart->total}}</td>
                                 <td class="col-4">
-                                    @if ($order->status == 'Pendiente')
+                                    @if ($order->status == 'Pendiente') 
                                     |
                                     <a href="{{ url('orders/'.$order->id.'/Facturado')}}" class="btn btn-warning"> Facturado </a>
                                     | 

@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url('/') }}">BotPro</a>
+                <a class="navbar-brand" href="{{ url('/') }}">Kaomi</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
