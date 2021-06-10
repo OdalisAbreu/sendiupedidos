@@ -38,7 +38,7 @@ class CartController extends Controller
 
     	//$msg = 'Tu pedido se ha registrado correctamente. Te contactaremos pronto vía mail!';
 		//return back()->with(compact('msg'));
-		return redirect('home');
+		return redirect('/');
 		
 	 }
 	 public function crearcarrtito($id, $product_id, $cantidad){

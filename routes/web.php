@@ -17,10 +17,15 @@ Route::get('products/{id}', 'ProductController@show'); // Vista producto especif
 Route::get('categories/{category}', 'CategoryController@show');
 
 //Cart
-Route::get('/car', 'HomeController@index')->name('home'); //Vista del carrito
+Route::get('/car', 'HomeController@index'); //Vista del carrito
 Route::post('/cart', 'CartDetailController@store'); // Guardar Carrito
 Route::delete('/cart', 'CartDetailController@destroy');//Eliminar carrito
 
+//Order
+Route::post('/order', 'CartController@update'); // Actualizar controler 
+Route::get('orders/{id}/{status}', 'OrderController@editar'); // Editar status de orden
+Route::get('order/{id}', 'PedidosController@show'); // Vista de impresion de la orden 
+Route::get('order-pdf','PedidosController@exportPdf'); // Vista PDF de la orden
 
 
 
